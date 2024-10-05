@@ -1,5 +1,5 @@
 import { json } from "@remix-run/node";
-import { Link, Outlet, useLoaderData, useRouteError } from "@remix-run/react";
+import { NavLink, Outlet, useLoaderData, useRouteError } from "@remix-run/react";
 import { boundary } from "@shopify/shopify-app-remix/server";
 import { AppProvider } from "@shopify/shopify-app-remix/react";
 import { NavMenu } from "@shopify/app-bridge-react";
@@ -20,10 +20,11 @@ export default function App() {
   return (
     <AppProvider isEmbeddedApp apiKey={apiKey}>
       <NavMenu>
-        <Link to="/app" rel="home">
+        <NavLink to="/app" rel="home">
           Home
-        </Link>
-        <Link to="/app/additional">Additional page</Link>
+        </NavLink>
+        <NavLink to="/app/additional">Additional page</NavLink>
+        <NavLink to="/app/lalit">Lalit Thapa page</NavLink>
       </NavMenu>
       <Outlet />
     </AppProvider>
