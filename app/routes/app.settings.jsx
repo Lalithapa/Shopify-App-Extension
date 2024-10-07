@@ -1,8 +1,8 @@
 import { TitleBar } from "@shopify/app-bridge-react";
-import { BlockStack, Box, Button, Card, Form, FormLayout, InlineGrid, Page, Text, TextField } from "@shopify/polaris";
+import { BlockStack, Box, Card, InlineGrid, Page, Text, TextField } from "@shopify/polaris";
+import { Form, useLoaderData } from "@remix-run/react";
 import { useState } from "react";
 import { json } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
 
 
 //Importing Prisma DB
@@ -11,10 +11,11 @@ import db from '../db.server';
 
 export async function loader() {
   //get Data from database
-  let settings = db.settings.findFirst();
+  let settings = await db.settings.findFirst();
   console.log("settings -----> ",settings);
  return json(settings) 
 }
+
 
 export async function action({request}) {
   const formData = await request.formData();
@@ -72,11 +73,11 @@ export default function Settings() {
             </BlockStack>
           </Box>
           <Card roundedAbove="sm">
-            <Form method="POST"  >
+            <Form method="post" >
               <BlockStack gap="400">
                 <TextField name="name" label="App Name" value={formState?.name} onChange={(value)=> setFormState({...formState , name:value})} />
                 <TextField name="description" label="Description" value={formState?.description} onChange={(value)=> setFormState({...formState , description:value})} />
-                <Button submit={true} >Save</Button>
+                <button type="submit">Save</button>
               </BlockStack>
             </Form>
           </Card>
