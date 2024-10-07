@@ -11,10 +11,10 @@ import {
 } from "@shopify/polaris";
 import { TitleBar } from "@shopify/app-bridge-react";
 
-export default function LalitSection() {
+export default function Pricing() {
   return (
     <Page>
-      <TitleBar title="Lalit Thapa" />
+      <TitleBar title="Pricing" />
       <Layout>
         <Layout.Section>
           <Card>

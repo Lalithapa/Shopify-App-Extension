@@ -3,7 +3,7 @@
 client_id = "530c7d1cc31c7ebe91eb16c02d5dc425"
 name = "wishlist-pro-plus"
 handle = "wishlist-pro-plus-1"
-application_url = "https://savannah-heart-behalf-wages.trycloudflare.com"
+application_url = "https://fill-better-protocol-capital.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://savannah-heart-behalf-wages.trycloudflare.com/auth/callback",
-  "https://savannah-heart-behalf-wages.trycloudflare.com/auth/shopify/callback",
-  "https://savannah-heart-behalf-wages.trycloudflare.com/api/auth/callback"
+  "https://fill-better-protocol-capital.trycloudflare.com/auth/callback",
+  "https://fill-better-protocol-capital.trycloudflare.com/auth/shopify/callback",
+  "https://fill-better-protocol-capital.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

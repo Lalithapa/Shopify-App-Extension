@@ -23,8 +23,8 @@ export default function App() {
         <NavLink to="/app" rel="home">
           Home
         </NavLink>
-        <NavLink to="/app/additional">Additional page</NavLink>
-        <NavLink to="/app/lalit">Lalit Thapa page</NavLink>
+        <NavLink to="/app/settings">Settings</NavLink>
+        <NavLink to="/app/pricing">Pricing</NavLink>
       </NavMenu>
       <Outlet />
     </AppProvider>
