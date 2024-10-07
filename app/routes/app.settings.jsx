@@ -1,15 +1,18 @@
 import { TitleBar } from "@shopify/app-bridge-react";
-import { BlockStack, Box, Button, Card, Form, InlineGrid, Page, Text, TextField } from "@shopify/polaris";
+import { BlockStack, Box, Button, Card, Form, FormLayout, InlineGrid, Page, Text, TextField } from "@shopify/polaris";
 import { useState } from "react";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
+
+//Importing Prisma DB
+
+import db from '../db.server';
+
 export async function loader() {
   //get Data from database
-  let settings = {
-    name:"Lalit",
-    description:"Wishlist Store by Lalit Thapa"
-  }
+  let settings = db.settings.findFirst();
+  console.log("settings -----> ",settings);
  return json(settings) 
 }
 
@@ -17,6 +20,21 @@ export async function action({request}) {
   const formData = await request.formData();
   const settings = Object.fromEntries(formData);
   // You can add your form submission logic here, like saving to a database.
+  await db.settings.upsert({
+    where:{
+      id:"1"
+    },
+    update:{
+       id:"1",
+      name:settings.name,
+      description: settings.description
+    },
+    create:{
+       id:"1",
+      name:settings.name,
+      description: settings.description
+    }
+  })
   console.log("Updated Settings:", settings);
   return json(settings); // Return updated data or redirect to another page.
 }
@@ -54,12 +72,12 @@ export default function Settings() {
             </BlockStack>
           </Box>
           <Card roundedAbove="sm">
-            <Form method="post" >
-            <BlockStack gap="400">
-              <TextField name="name" label="App Name" value={formState.name} onChange={(value)=> setFormState({...formState , name:value})} />
-              <TextField name="description" label="Description"  value={formState.description} onChange={(value)=> setFormState({...formState , description:value})} />
-              <Button type="submit" >Save</Button>
-            </BlockStack>
+            <Form method="POST"  >
+              <BlockStack gap="400">
+                <TextField name="name" label="App Name" value={formState?.name} onChange={(value)=> setFormState({...formState , name:value})} />
+                <TextField name="description" label="Description" value={formState?.description} onChange={(value)=> setFormState({...formState , description:value})} />
+                <Button submit={true} >Save</Button>
+              </BlockStack>
             </Form>
           </Card>
         </InlineGrid>

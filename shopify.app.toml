@@ -3,7 +3,7 @@
 client_id = "530c7d1cc31c7ebe91eb16c02d5dc425"
 name = "wishlist-pro-plus"
 handle = "wishlist-pro-plus-1"
-application_url = "https://media-guatemala-pairs-ask.trycloudflare.com"
+application_url = "https://trauma-beginners-caribbean-frequent.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://media-guatemala-pairs-ask.trycloudflare.com/auth/callback",
-  "https://media-guatemala-pairs-ask.trycloudflare.com/auth/shopify/callback",
-  "https://media-guatemala-pairs-ask.trycloudflare.com/api/auth/callback"
+  "https://trauma-beginners-caribbean-frequent.trycloudflare.com/auth/callback",
+  "https://trauma-beginners-caribbean-frequent.trycloudflare.com/auth/shopify/callback",
+  "https://trauma-beginners-caribbean-frequent.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
